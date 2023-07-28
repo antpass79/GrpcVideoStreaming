@@ -1,0 +1,38 @@
+﻿@using Grpc.Core;
+@using Grpc.Net.Client.Web;
+@using Grpc.Net.Client;
+@using SpawnDev.BlazorJS.WebWorkers;
+@using StreamingCore.Actors;
+@using StreamingCore;
+
+<img width="600" height="500" src="data:image/jpeg;base64,@CurrentFrame" />
+
+@code {
+	string CurrentFrame { get; set; } = string.Empty;
+
+	[Inject]
+	WebWorkerService? WebWorkerService { get; set; }
+
+	async protected override Task OnInitializedAsync()
+	{
+		var webWorker = await WebWorkerService!.GetWebWorker();
+		var frameReceiver = webWorker!.GetService<FrameReceiver>();
+
+		frameReceiver.FrameArrived += (sender, frame) =>
+		{
+			CurrentFrame = frame.Content.ToBase64()!;
+			StateHasChanged();
+		};
+
+		var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler()));
+		await frameReceiver.Run(clientOptions: new GrpcClientOptions
+			{
+				Url = "https://localhost:5001",
+				ChannelOptions = new GrpcChannelOptions
+				{
+					Credentials = ChannelCredentials.SecureSsl,
+					HttpClient = httpClient
+				}
+			});
+	}
+}

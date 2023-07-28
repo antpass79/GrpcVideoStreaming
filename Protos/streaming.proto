@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package Streaming;
+
+service StreamingService {
+  rpc JoinToSession (JoinToSessionRequest) returns (JoinToSessionReply);
+
+  rpc StreamFromClient(stream Frame) returns (Frame);
+  rpc StreamFromServer(StreamConnectionRequest) returns (stream Frame);
+}
+
+message JoinToSessionRequest {
+  Actor actor = 1;
+}
+
+message JoinToSessionReply {
+  int32 session_id = 1;
+}
+
+message Actor {
+  string Id = 1;
+  string name = 2;
+}
+
+message Frame {
+  string id = 8;
+  string actor_id = 1;
+  string actor_name = 5;
+  int32 session_id = 4;
+  bytes content = 6;
+  google.protobuf.Timestamp generated_at = 7;
+}
+
+message StreamConnectionRequest {
+  int32 session_id = 1;
+  string actor_id = 2;
+  string actor_name = 3;
+}

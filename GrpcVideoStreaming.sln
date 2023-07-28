@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamingHub", "StreamingHub\StreamingHub.csproj", "{1DA92F92-0B77-4657-A89B-4070D25D6FFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamingCore", "StreamingCore\StreamingCore.csproj", "{5539A9CA-96AA-4271-A9B7-4590E884B7D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamingSender", "StreamingSender\StreamingSender.csproj", "{A8F7E91A-C55A-4BD1-B958-1436B2BE303C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamingViewer", "StreamingViewer\StreamingViewer.csproj", "{A6D83A77-A7DD-41DD-93E0-6DBA989AB164}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0CB1F458-A12D-4A9A-AE13-327FCF9F315B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+		Protos\streaming.proto = Protos\streaming.proto
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DA92F92-0B77-4657-A89B-4070D25D6FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA92F92-0B77-4657-A89B-4070D25D6FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA92F92-0B77-4657-A89B-4070D25D6FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA92F92-0B77-4657-A89B-4070D25D6FFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5539A9CA-96AA-4271-A9B7-4590E884B7D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5539A9CA-96AA-4271-A9B7-4590E884B7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5539A9CA-96AA-4271-A9B7-4590E884B7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5539A9CA-96AA-4271-A9B7-4590E884B7D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F7E91A-C55A-4BD1-B958-1436B2BE303C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F7E91A-C55A-4BD1-B958-1436B2BE303C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F7E91A-C55A-4BD1-B958-1436B2BE303C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F7E91A-C55A-4BD1-B958-1436B2BE303C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D83A77-A7DD-41DD-93E0-6DBA989AB164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D83A77-A7DD-41DD-93E0-6DBA989AB164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D83A77-A7DD-41DD-93E0-6DBA989AB164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D83A77-A7DD-41DD-93E0-6DBA989AB164}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3CCCC86-37B2-4A0B-81C9-032BC682995E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+﻿@page "/streaming"
+
+@using Grpc.Core;
+@using Grpc.Net.Client.Web;
+@using Grpc.Net.Client;
+@using SpawnDev.BlazorJS.WebWorkers;
+@using StreamingCore.Actors;
+@using StreamingCore;
+@using StreamingViewer.Components;
+
+<textarea style="width: 600px; height: 200px;">@Text</textarea>
+<FrameViewer></FrameViewer>
+
+@code {
+	string Text { get; set; } = string.Empty;
+	string CurrentFrame { get; set; } = string.Empty;
+
+	[Inject]
+	WebWorkerService? WebWorkerService { get; set; }
+
+	async protected override Task OnInitializedAsync()
+	{
+		var webWorker = await WebWorkerService!.GetWebWorker();
+		var frameReceiver = webWorker!.GetService<FrameReceiver>();
+
+		frameReceiver.ActorConnected += (sender, actor) =>
+		{
+			Text += $"{actor.Name} connected to the session" + System.Environment.NewLine;
+			StateHasChanged();
+		};
+	}
+}
